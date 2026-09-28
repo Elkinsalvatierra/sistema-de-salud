@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNEMI - Registro de paciente</title>
+    <link rel="stylesheet" href="../css/root.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/registro.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0" rel="stylesheet">
+</head>
+
+<body>
+    <header class="topbar">
+        <button class="icon-button menu-button" id="menuButton" type="button" aria-label="Mostrar u ocultar menú">
+            <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+        </button>
+
+        <a class="brand" href="dashboard.html" aria-label="Ir al panel de inicio">
+            <img src="../img/LOGO-WEB-AZUL.png" alt="UNEMI Universidad Estatal de Milagro">
+        </a>
+
+        <div class="product-name">
+            <strong>Salud y Desarrollo Humano</strong>
+            <span>Gestión integral de bienestar</span>
+        </div>
+
+        <div class="page-context">
+            <span class="material-symbols-outlined" aria-hidden="true">person_add</span>
+            Registro de pacientes
+        </div>
+
+        <div class="topbar-actions">
+            <button class="user-menu" id="userMenuButton" type="button" aria-expanded="false">
+                <span class="avatar" id="userInitials">AU</span>
+                <span class="user-copy">
+                    <strong id="currentUserName">Administrador UNEMI</strong>
+                    <small>Vista de Jefatura</small>
+                </span>
+                <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+            </button>
+            <div class="popover user-popover" id="userPopover" hidden>
+                <button id="logoutButton" type="button">
+                    <span class="material-symbols-outlined" aria-hidden="true">logout</span>
+                    Cerrar sesión
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <aside class="sidebar">
+        <nav aria-label="Navegación principal">
+            <a href="dashboard.html#inicio">
+                <span class="material-symbols-outlined">home</span><span>Inicio</span>
+            </a>
+            <a href="dashboard.html#usuarios" class="active">
+                <span class="material-symbols-outlined">groups</span><span>Usuarios</span>
+            </a>
+            <a href="dashboard.html#agendamiento">
+                <span class="material-symbols-outlined">calendar_month</span><span>Agendamiento</span>
+            </a>
+            <button class="nav-section submenu-toggle" id="attentionToggle" type="button" aria-expanded="true">
+                <span class="material-symbols-outlined">medical_services</span><span>Atenciones</span><span class="material-symbols-outlined nav-chevron">keyboard_arrow_up</span>
+            </button>
+            <div class="submenu is-open" id="attentionSubmenu">
+                <a href="dashboard.html#clinica"><span class="material-symbols-outlined">stethoscope</span><span>Clínica</span></a>
+                <a href="dashboard.html#psicopedagogica"><span class="material-symbols-outlined">psychology</span><span>Psicopedagogía</span></a>
+                <a href="dashboard.html#psicometrica"><span class="material-symbols-outlined">fact_check</span><span>Psicométrica</span></a>
+            </div>
+            <a href="dashboard.html#refuerzo"><span class="material-symbols-outlined">school</span><span>Refuerzo</span></a>
+            <a href="dashboard.html#derivaciones"><span class="material-symbols-outlined">sync_alt</span><span>Derivaciones</span></a>
+            <a href="dashboard.html#informes"><span class="material-symbols-outlined">description</span><span>Informes</span></a>
+            <a href="dashboard.html#reportes"><span class="material-symbols-outlined">bar_chart</span><span>Reportes</span></a>
+            <a href="dashboard.html#administracion"><span class="material-symbols-outlined">settings</span><span>Administración</span></a>
+        </nav>
+        <div class="sidebar-footer">
+            <span class="material-symbols-outlined" aria-hidden="true">favorite</span>
+            <p>Bienestar integral para una mejor comunidad</p>
+        </div>
+    </aside>
+
+    <main class="workspace">
+        <section class="section-view registration-view">
+            <header class="section-heading">
+                <div>
+                    <span class="breadcrumb">Usuarios / Nuevo registro</span>
+                    <h1>Registrar paciente</h1>
+                    <p>Completa la información personal, clasificación y datos de contacto.</p>
+                </div>
+                <a class="secondary-button" href="dashboard.html#usuarios">
+                    <span class="material-symbols-outlined" aria-hidden="true">arrow_back</span>
+                    Volver al directorio
+                </a>
+            </header>
+
+            <form id="registrationForm" class="registration-form" novalidate>
+                <section class="form-section">
+                    <div class="form-section-heading">
+                        <span class="section-number">1</span>
+                        <div>
+                            <h2>Identificación del paciente</h2>
+                            <p>Datos requeridos para crear el expediente único.</p>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <label class="form-field">Nombres
+                            <input id="firstNames" name="firstNames" type="text" placeholder="Ej. Daniela Alejandra" autocomplete="given-name" required>
+                            <span class="field-error"></span>
+                        </label>
+                        <label class="form-field">Apellidos
+                            <input id="lastNames" name="lastNames" type="text" placeholder="Ej. Mendoza Ruiz" autocomplete="family-name" required>
+                            <span class="field-error"></span>
+                        </label>
+                        <label class="form-field">Tipo de documento
+                            <select id="documentType" name="documentType" required>
+                                <option value="Cédula">Cédula</option>
+                                <option value="Pasaporte">Pasaporte</option>
+                            </select>
+                            <span class="field-error"></span>
+                        </label>
+                        <label class="form-field">Cédula o pasaporte
+                            <input id="documentNumber" name="documentNumber" type="text" placeholder="Número de identificación" maxlength="20" autocomplete="off" required>
+                            <span class="field-error"></span>
+                        </label>
+                        <label class="form-field">Fecha de nacimiento
+                            <input id="birthDate" name="birthDate" type="date" required>
+                            <span class="field-error"></span>
+                        </label>
+                        <div class="age-result" id="ageResult" aria-live="polite">
+                            <span class="material-symbols-outlined" aria-hidden="true">cake</span>
+                            <div><small>Edad calculada</small><strong>Selecciona la fecha de nacimiento</strong></div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="form-section">
+                    <div class="form-section-heading">
+                        <span class="section-number">2</span>
+                        <div>
+                            <h2>Clasificación y contacto</h2>
+                            <p>El tipo de paciente se selecciona manualmente.</p>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <label class="form-field">Tipo de paciente
+                            <select id="patientType" name="patientType" required>
+                                <option value="">Selecciona una opción</option>
+                                <option value="Interno">Interno UNEMI</option>
+                                <option value="Externo">Externo</option>
+                            </select>
+                            <span class="field-error"></span>
+                        </label>
+                        <label class="form-field">Género
+                            <select id="gender" name="gender" required>
+                                <option value="">Selecciona una opción</option>
+                                <option value="Femenino">Femenino</option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Otro">Otro</option>
+                                <option value="Prefiere no indicar">Prefiere no indicar</option>
+                            </select>
+                            <span class="field-error"></span>
+                        </label>
+                        <label class="form-field full">Carrera, unidad o institución de procedencia
+                            <input id="origin" name="origin" type="text" placeholder="Ej. Ingeniería Industrial / Unidad Educativa...">
+                            <span class="field-help" id="originHelp">Para pacientes internos, registra su carrera o unidad UNEMI.</span>
+                        </label>
+                        <label class="form-field">Teléfono / WhatsApp
+                            <input id="phone" name="phone" type="tel" placeholder="09XXXXXXXX" inputmode="numeric" maxlength="10" autocomplete="tel" required>
+                            <span class="field-error"></span>
+                        </label>
+                        <label class="form-field">Correo electrónico
+                            <input id="email" name="email" type="email" placeholder="usuario@unemi.edu.ec" autocomplete="email" required>
+                            <span class="field-error"></span>
+                        </label>
+                    </div>
+                </section>
+
+                <section class="form-section representative-section" id="representativeSection" hidden>
+                    <div class="form-section-heading">
+                        <span class="section-number warning">3</span>
+                        <div>
+                            <h2>Datos del representante legal</h2>
+                            <p>Obligatorio porque el paciente es menor de 18 años.</p>
+                        </div>
+                        <span class="required-badge"><span class="material-symbols-outlined">gpp_good</span>Validación requerida</span>
+                    </div>
+
+                    <div class="minor-alert">
+                        <span class="material-symbols-outlined" aria-hidden="true">family_restroom</span>
+                        <p>Registra al adulto responsable y adjunta una copia legible de su cédula en formato PDF.</p>
+                    </div>
+
+                    <div class="form-grid">
+                        <label class="form-field">Nombres y apellidos
+                            <input id="representativeName" name="representativeName" type="text" placeholder="Nombre completo del representante">
+                            <span class="field-error"></span>
+                        </label>
+                        <label class="form-field">Cédula del representante
+                            <input id="representativeDocument" name="representativeDocument" type="text" placeholder="10 dígitos" inputmode="numeric" maxlength="10">
+                            <span class="field-error"></span>
+                        </label>
+                        <label class="form-field">Parentesco
+                            <select id="relationship" name="relationship">
+                                <option value="">Selecciona una opción</option>
+                                <option value="Madre">Madre</option>
+                                <option value="Padre">Padre</option>
+                                <option value="Tutor legal">Tutor legal</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                            <span class="field-error"></span>
+                        </label>
+                        <label class="form-field">Contacto
+                            <input id="representativeContact" name="representativeContact" type="tel" placeholder="Teléfono o WhatsApp" inputmode="numeric" maxlength="10">
+                            <span class="field-error"></span>
+                        </label>
+                        <label class="file-field full" id="representativeFileLabel">
+                            <input id="representativePdf" name="representativePdf" type="file" accept="application/pdf,.pdf">
+                            <span class="file-icon material-symbols-outlined" aria-hidden="true">upload_file</span>
+                            <span class="file-copy"><strong id="fileTitle">Adjuntar cédula del representante</strong><small id="fileDescription">Solo PDF · máximo recomendado 5 MB</small></span>
+                            <span class="file-button">Seleccionar PDF</span>
+                        </label>
+                        <span class="field-error file-error" id="fileError"></span>
+                    </div>
+                </section>
+
+                <section class="form-section observations-section">
+                    <div class="form-section-heading">
+                        <span class="section-number" id="observationsNumber">3</span>
+                        <div>
+                            <h2>Información complementaria</h2>
+                            <p>Notas relevantes para el equipo de atención.</p>
+                        </div>
+                    </div>
+                    <label class="form-field full">Observaciones
+                        <textarea id="observations" name="observations" rows="4" placeholder="Antecedentes, necesidades de accesibilidad u otra información relevante"></textarea>
+                    </label>
+                </section>
+
+                <div class="form-actions">
+                    <a class="secondary-button" href="dashboard.html#usuarios">Cancelar</a>
+                    <button class="primary-button submit-registration" type="submit">
+                        <span class="material-symbols-outlined" aria-hidden="true">person_add</span>
+                        Registrar paciente
+                    </button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer class="page-footer">Sistema de Salud UNEMI · 2026</footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">
+        <span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
+        <span id="toastMessage">Paciente registrado correctamente.</span>
+    </div>
+
+    <script src="../js/registro.js"></script>
+</body>
+
+</html>

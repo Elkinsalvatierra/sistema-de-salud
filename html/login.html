@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Salud y Desarrollo Humano</title>
+    <link rel="stylesheet" href="../css/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+<body>
+    <div class="login-wrapper">
+        <div class="login-left">
+            <div class="login-pattern" aria-hidden="true"></div>
+
+            <div class="brand-content">
+                <img src="../img/LOGO-WEB-AZUL.png" alt="Logo UNEMI" class="logo-img">
+
+                <span class="brand-kicker">Sistema de bienestar universitario</span>
+                <h2>Salud y<br>Desarrollo Humano</h2>
+                <p class="subtitle">Bienestar integral<br>para una mejor comunidad</p>
+
+                <div class="brand-icons">
+                    <span class="material-symbols-outlined icon-medium">person</span>
+                    <span class="material-symbols-outlined icon-medium">diversity_3</span>
+                    <span class="material-symbols-outlined icon-medium">favorite</span>
+                </div>
+            </div>
+
+            <div class="brand-footer">
+                <p>Escucha - Orienta - Acompa&ntilde;a - Transforma</p>
+            </div>
+        </div>
+
+        <div class="login-right">
+            <div class="login-card">
+                <div class="card-header">
+                    <span class="card-badge">Acceso seguro</span>
+                    <h3>Bienvenido/a</h3>
+                    <p>Inicia sesi&oacute;n para continuar</p>
+                </div>
+
+                <form class="login-form" id="loginForm">
+                    <div class="form-group">
+                        <label for="username">Usuario o correo electr&oacute;nico</label>
+                        <div class="input-wrapper">
+                            <span class="material-symbols-outlined input-icon-left">person</span>
+                            <input type="text" id="username" placeholder="usuario@unemi.edu.ec" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Contrase&ntilde;a</label>
+                        <div class="input-wrapper">
+                            <span class="material-symbols-outlined input-icon-left">lock</span>
+                            <input type="password" id="password" placeholder="Ingresa tu contrase&ntilde;a" required>
+                            <button class="password-toggle" type="button" aria-label="Mostrar contrase&ntilde;a">
+                                <span class="material-symbols-outlined">visibility</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <p class="login-error" id="loginError" role="alert" aria-live="polite"></p>
+
+                    <button type="submit" class="btn-ingresar">
+                        <span>Ingresar</span>
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </button>
+
+                    <a href="#" class="forgot-password">&iquest;Olvidaste tu contrase&ntilde;a?</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const passwordInput = document.getElementById('password');
+        const passwordToggle = document.querySelector('.password-toggle');
+        const passwordToggleIcon = passwordToggle.querySelector('.material-symbols-outlined');
+        const loginForm = document.getElementById('loginForm');
+        const usernameInput = document.getElementById('username');
+        const loginError = document.getElementById('loginError');
+
+        const usuarioPredefinido = {
+            usuario: 'admin',
+            correo: 'admin@unemi.edu.ec',
+            password: 'admin123',
+            nombre: 'Administrador UNEMI',
+            rol: 'Jefe de Area'
+        };
+
+        if (localStorage.getItem('sesionActiva') === 'true') {
+            window.location.href = 'dashboard.html';
+        }
+
+        passwordToggle.addEventListener('click', () => {
+            const isPassword = passwordInput.type === 'password';
+
+            passwordInput.type = isPassword ? 'text' : 'password';
+            passwordToggleIcon.textContent = isPassword ? 'visibility_off' : 'visibility';
+            passwordToggle.setAttribute(
+                'aria-label',
+                isPassword ? 'Ocultar contrase\u00f1a' : 'Mostrar contrase\u00f1a'
+            );
+        });
+
+        loginForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const username = usernameInput.value.trim().toLowerCase();
+            const password = passwordInput.value;
+
+            const usuarioValido =
+                username === usuarioPredefinido.usuario ||
+                username === usuarioPredefinido.correo;
+
+            if (usuarioValido && password === usuarioPredefinido.password) {
+                localStorage.setItem('sesionActiva', 'true');
+                localStorage.setItem(
+                    'usuarioActual',
+                    JSON.stringify({
+                        nombre: usuarioPredefinido.nombre,
+                        rol: usuarioPredefinido.rol,
+                        correo: usuarioPredefinido.correo
+                    })
+                );
+
+                window.location.href = 'dashboard.html';
+                return;
+            }
+
+            loginError.textContent = 'Usuario o contrase\u00f1a incorrectos.';
+            passwordInput.value = '';
+            passwordInput.focus();
+        });
+    </script>
+</body>
+</html>

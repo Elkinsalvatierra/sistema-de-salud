@@ -1,0 +1,472 @@
+.page-context {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+    color: var(--gray-500);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.page-context .material-symbols-outlined {
+    color: var(--health-blue);
+    font-size: 19px;
+}
+
+.registration-view {
+    max-width: 1260px;
+}
+
+.secondary-button {
+    display: inline-flex;
+    min-height: 40px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 15px;
+    border: 1px solid #cedce1;
+    border-radius: 6px;
+    color: var(--unemi-blue);
+    background: var(--white);
+    font-size: 11px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.secondary-button:hover,
+.secondary-button:focus-visible {
+    border-color: var(--health-blue);
+    color: var(--health-blue);
+    outline: none;
+}
+
+.secondary-button .material-symbols-outlined {
+    font-size: 18px;
+}
+
+.registration-form {
+    margin-top: 22px;
+    overflow: hidden;
+    border: 1px solid #dce5e8;
+    border-radius: 8px;
+    background: var(--white);
+    box-shadow: 0 10px 28px rgb(0 46 69 / 6%);
+}
+
+.form-section {
+    padding: 28px 30px 30px;
+    border-bottom: 1px solid #e3eaec;
+}
+
+.form-section-heading {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    margin-bottom: 22px;
+}
+
+.form-section-heading > div {
+    flex: 1;
+}
+
+.form-section-heading h2,
+.form-section-heading p {
+    margin: 0;
+}
+
+.form-section-heading h2 {
+    color: var(--unemi-blue);
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 21px;
+}
+
+.form-section-heading p {
+    margin-top: 4px;
+    color: var(--gray-500);
+    font-size: 10px;
+    line-height: 16px;
+}
+
+.section-number {
+    display: grid;
+    width: 28px;
+    height: 28px;
+    flex: 0 0 28px;
+    place-items: center;
+    border-radius: 6px;
+    color: var(--white);
+    background: var(--unemi-blue);
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.section-number.warning {
+    background: var(--unemi-orange);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 20px;
+    padding-left: 41px;
+}
+
+.form-field {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 7px;
+    color: var(--gray-700);
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.form-field.full,
+.file-field.full,
+.file-error {
+    grid-column: 1 / -1;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+    width: 100%;
+    min-width: 0;
+    border: 1px solid #cedce1;
+    border-radius: 6px;
+    outline: 0;
+    color: var(--gray-800);
+    background: var(--white);
+    font-size: 11px;
+    font-weight: 500;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-field input,
+.form-field select {
+    height: 42px;
+    padding: 0 12px;
+}
+
+.form-field textarea {
+    min-height: 104px;
+    padding: 12px;
+    resize: vertical;
+    line-height: 18px;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+    color: var(--gray-400);
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+    border-color: var(--health-blue);
+    box-shadow: 0 0 0 3px rgb(2 132 199 / 10%);
+}
+
+.form-field input.invalid,
+.form-field select.invalid,
+.form-field textarea.invalid {
+    border-color: var(--error);
+    box-shadow: 0 0 0 3px rgb(239 68 68 / 8%);
+}
+
+.field-error,
+.field-help {
+    min-height: 12px;
+    color: var(--error);
+    font-size: 8px;
+    font-weight: 600;
+    line-height: 12px;
+}
+
+.field-help {
+    color: var(--gray-500);
+}
+
+.age-result {
+    display: flex;
+    min-height: 58px;
+    align-items: center;
+    gap: 11px;
+    align-self: end;
+    margin-bottom: 19px;
+    padding: 9px 12px;
+    border: 1px dashed #c7d8de;
+    border-radius: 6px;
+    color: var(--gray-500);
+    background: #f8fafb;
+}
+
+.age-result > .material-symbols-outlined {
+    font-size: 24px;
+}
+
+.age-result small,
+.age-result strong {
+    display: block;
+}
+
+.age-result small {
+    font-size: 8px;
+}
+
+.age-result strong {
+    margin-top: 3px;
+    color: var(--gray-700);
+    font-size: 10px;
+}
+
+.age-result.minor {
+    border-color: #f2bd76;
+    color: #b45309;
+    background: #fff8ed;
+}
+
+.age-result.minor strong {
+    color: #9a4b08;
+}
+
+.age-result.adult {
+    border-color: #9dd5be;
+    color: #047857;
+    background: #effaf5;
+}
+
+.age-result.adult strong {
+    color: #046747;
+}
+
+.representative-section {
+    border-left: 4px solid var(--unemi-orange);
+    background: #fffbf7;
+}
+
+.required-badge {
+    display: inline-flex;
+    min-height: 27px;
+    align-items: center;
+    gap: 5px;
+    padding: 0 9px;
+    border-radius: 5px;
+    color: #9a4b08;
+    background: #ffebd6;
+    font-size: 8px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.required-badge .material-symbols-outlined {
+    font-size: 15px;
+}
+
+.minor-alert {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: -5px 0 20px 41px;
+    padding: 11px 13px;
+    border: 1px solid #f2d0a5;
+    border-radius: 6px;
+    color: #8a4a10;
+    background: #fff6e9;
+}
+
+.minor-alert .material-symbols-outlined {
+    font-size: 22px;
+}
+
+.minor-alert p {
+    margin: 0;
+    font-size: 9px;
+    font-weight: 600;
+    line-height: 15px;
+}
+
+.file-field {
+    display: flex;
+    min-height: 78px;
+    align-items: center;
+    gap: 13px;
+    padding: 12px 14px;
+    border: 1px dashed #aac4ce;
+    border-radius: 7px;
+    color: var(--gray-600);
+    background: var(--white);
+    cursor: pointer;
+}
+
+.file-field:hover {
+    border-color: var(--health-blue);
+    background: #f8fcfd;
+}
+
+.file-field.invalid {
+    border-color: var(--error);
+    background: #fff7f7;
+}
+
+.file-field.has-file {
+    border-style: solid;
+    border-color: #86cbb3;
+    background: #f3fbf7;
+}
+
+.file-field input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.file-icon {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    place-items: center;
+    border-radius: 6px;
+    color: #c2410c;
+    background: #fff0e5;
+    font-size: 24px;
+}
+
+.file-field.has-file .file-icon {
+    color: #047857;
+    background: #dff5eb;
+}
+
+.file-copy {
+    min-width: 0;
+    flex: 1;
+}
+
+.file-copy strong,
+.file-copy small {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.file-copy strong {
+    color: var(--unemi-blue);
+    font-size: 10px;
+}
+
+.file-copy small {
+    margin-top: 4px;
+    color: var(--gray-500);
+    font-size: 8px;
+}
+
+.file-button {
+    flex: 0 0 auto;
+    padding: 8px 10px;
+    border: 1px solid #cad9de;
+    border-radius: 5px;
+    color: var(--unemi-blue);
+    background: var(--white);
+    font-size: 8px;
+    font-weight: 800;
+}
+
+.file-error {
+    display: block;
+    min-height: 0;
+    margin-top: -12px;
+    color: var(--error);
+    font-size: 8px;
+    font-weight: 600;
+}
+
+.observations-section {
+    border-bottom: 0;
+}
+
+.form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 18px 30px;
+    border-top: 1px solid #dce5e8;
+    background: #f7f9fa;
+}
+
+.submit-registration {
+    min-width: 172px;
+}
+
+@media (max-width: 760px) {
+    .page-context {
+        display: none;
+    }
+
+    .registration-form {
+        margin-top: 18px;
+    }
+
+    .form-section {
+        padding: 22px 18px 24px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        padding-left: 0;
+    }
+
+    .form-field.full,
+    .file-field.full,
+    .file-error {
+        grid-column: auto;
+    }
+
+    .minor-alert {
+        margin-left: 0;
+    }
+
+    .required-badge {
+        align-self: flex-start;
+    }
+
+    .form-section-heading {
+        flex-wrap: wrap;
+    }
+
+    .age-result {
+        align-self: stretch;
+        margin-bottom: 0;
+    }
+
+    .form-actions {
+        align-items: stretch;
+        flex-direction: column-reverse;
+        padding: 16px 18px;
+    }
+
+    .form-actions .secondary-button,
+    .form-actions .primary-button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .file-field {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .file-copy {
+        width: calc(100% - 58px);
+    }
+
+    .file-button {
+        width: 100%;
+        text-align: center;
+    }
+}

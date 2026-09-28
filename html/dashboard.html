@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNEMI - Panel de Salud</title>
+    <link rel="stylesheet" href="../css/root.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0" rel="stylesheet">
+</head>
+
+<body>
+    <header class="topbar">
+        <button class="icon-button menu-button" id="menuButton" type="button" aria-label="Mostrar u ocultar menú">
+            <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+        </button>
+
+        <a class="brand" href="#inicio" aria-label="Ir al panel de inicio">
+            <img src="../img/LOGO-WEB-AZUL.png" alt="UNEMI Universidad Estatal de Milagro">
+        </a>
+
+        <div class="product-name">
+            <strong>Salud y Desarrollo Humano</strong>
+            <span>Gestión integral de bienestar</span>
+        </div>
+
+        <label class="search-box" for="globalSearch">
+            <span class="material-symbols-outlined" aria-hidden="true">search</span>
+            <input id="globalSearch" type="search" placeholder="Buscar paciente por nombre o documento" autocomplete="off">
+        </label>
+
+        <div class="topbar-actions">
+            <button class="icon-button notification-button" id="notificationButton" type="button" aria-label="Ver notificaciones" aria-expanded="false">
+                <span class="material-symbols-outlined" aria-hidden="true">notifications</span>
+                <span class="notification-dot" id="notificationCount">2</span>
+            </button>
+
+            <button class="user-menu" id="userMenuButton" type="button" aria-expanded="false">
+                <span class="avatar" id="userInitials">AU</span>
+                <span class="user-copy">
+                    <strong id="currentUserName">Administrador UNEMI</strong>
+                    <small id="currentUserRole">Jefatura</small>
+                </span>
+                <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+            </button>
+
+            <div class="popover notification-popover" id="notificationPopover" hidden>
+                <strong>Notificaciones recientes</strong>
+                <div id="notificationList"></div>
+            </div>
+
+            <div class="popover user-popover" id="userPopover" hidden>
+                <button id="logoutButton" type="button">
+                    <span class="material-symbols-outlined" aria-hidden="true">logout</span>
+                    Cerrar sesión
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <aside class="sidebar" id="sidebar">
+        <nav aria-label="Navegación principal">
+            <a href="#inicio" data-section="Inicio" class="active">
+                <span class="material-symbols-outlined">home</span>
+                <span>Inicio</span>
+            </a>
+            <a href="#usuarios" data-section="Usuarios">
+                <span class="material-symbols-outlined">groups</span>
+                <span>Usuarios</span>
+            </a>
+            <a href="#agendamiento" data-section="Agendamiento">
+                <span class="material-symbols-outlined">calendar_month</span>
+                <span>Agendamiento</span>
+            </a>
+
+            <button class="nav-section submenu-toggle" id="attentionToggle" type="button" aria-expanded="true">
+                <span class="material-symbols-outlined">medical_services</span>
+                <span>Atenciones</span>
+                <span class="material-symbols-outlined nav-chevron">keyboard_arrow_up</span>
+            </button>
+
+            <div class="submenu is-open" id="attentionSubmenu">
+                <a href="#clinica" data-section="Clínica">
+                    <span class="material-symbols-outlined">stethoscope</span>
+                    <span>Clínica</span>
+                </a>
+                <a href="#psicopedagogica" data-section="Psicopedagógica">
+                    <span class="material-symbols-outlined">psychology</span>
+                    <span>Psicopedagogía</span>
+                </a>
+                <a href="#psicometrica" data-section="Psicométrica">
+                    <span class="material-symbols-outlined">fact_check</span>
+                    <span>Psicométrica</span>
+                </a>
+            </div>
+
+            <a href="#refuerzo" data-section="Refuerzo">
+                <span class="material-symbols-outlined">school</span>
+                <span>Refuerzo</span>
+            </a>
+            <a href="#derivaciones" data-section="Derivaciones">
+                <span class="material-symbols-outlined">sync_alt</span>
+                <span>Derivaciones</span>
+            </a>
+            <a href="#informes" data-section="Informes">
+                <span class="material-symbols-outlined">description</span>
+                <span>Informes</span>
+            </a>
+            <a href="#reportes" data-section="Reportes">
+                <span class="material-symbols-outlined">bar_chart</span>
+                <span>Reportes</span>
+            </a>
+            <a href="#administracion" data-section="Administración">
+                <span class="material-symbols-outlined">settings</span>
+                <span>Administración</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <span class="material-symbols-outlined" aria-hidden="true">favorite</span>
+            <p>Bienestar integral para una mejor comunidad</p>
+        </div>
+    </aside>
+
+    <main class="workspace">
+        <section class="section-view">
+            <header class="section-heading">
+                <div>
+                    <span class="breadcrumb" id="sectionBreadcrumb">Panel principal</span>
+                    <h1 id="sectionTitle">Dashboard</h1>
+                    <p id="sectionDescription">Indicadores transversales de Salud y Desarrollo Humano.</p>
+                </div>
+                <button class="primary-button" id="sectionAction" type="button">
+                    <span class="material-symbols-outlined" aria-hidden="true">person_add</span>
+                    <span>Nuevo usuario</span>
+                </button>
+            </header>
+
+            <section class="content-root" id="contentRoot" aria-live="polite"></section>
+        </section>
+    </main>
+
+    <footer class="page-footer">Sistema de Salud UNEMI · 2026</footer>
+
+    <dialog class="record-dialog" id="recordDialog">
+        <div class="dialog-heading">
+            <div>
+                <span class="eyebrow">Expediente digital</span>
+                <h2 id="dialogTitle">Detalle del paciente</h2>
+            </div>
+            <button class="icon-button" id="closeDialogButton" type="button" aria-label="Cerrar expediente">
+                <span class="material-symbols-outlined" aria-hidden="true">close</span>
+            </button>
+        </div>
+        <div id="dialogContent"></div>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">
+        <span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
+        <span id="toastMessage">Acción completada</span>
+    </div>
+
+    <script src="../js/clinical-processes.js"></script>
+    <script src="../js/institutional-reports.js"></script>
+    <script src="../js/dashboard.js"></script>
+</body>
+
+</html>

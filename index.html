@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistema de Salud y Desarrollo Humano de la Universidad Estatal de Milagro.">
+    <title>Salud y Desarrollo Humano | UNEMI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <header class="site-header" id="siteHeader">
+        <a class="site-brand" href="#inicio" aria-label="UNEMI Salud y Desarrollo Humano">
+            <img src="img/LOGO-WEB-AZUL.png" alt="Universidad Estatal de Milagro">
+            <span><strong>Salud y Desarrollo Humano</strong><small>Bienestar universitario</small></span>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menú" aria-controls="siteNav" aria-expanded="false">
+            <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+        </button>
+
+        <nav class="site-nav" id="siteNav" aria-label="Navegación principal">
+            <a href="#inicio">Inicio</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#atencion">Atención</a>
+            <a class="nav-access" id="navAccess" href="html/login.html">
+                <span class="material-symbols-outlined" aria-hidden="true">login</span>
+                <span>Iniciar sesión</span>
+            </a>
+        </nav>
+    </header>
+
+    <main id="contenido">
+        <section class="hero" id="inicio" aria-labelledby="heroTitle">
+            <img class="hero-image" src="img/hero-bienestar-unemi.png" alt="Estudiantes y profesional de bienestar recorriendo un campus universitario">
+            <div class="hero-overlay" aria-hidden="true"></div>
+            <div class="hero-content">
+                <span class="hero-kicker"><i></i>Sistema de Salud UNEMI</span>
+                <h1 id="heroTitle">Salud y Desarrollo Humano</h1>
+                <p>Un espacio universitario de escucha, orientación y acompañamiento para cuidar el bienestar personal y fortalecer cada trayectoria académica.</p>
+                <div class="hero-actions">
+                    <a class="primary-cta" id="heroAccess" href="html/login.html">
+                        <span>Iniciar sesión</span>
+                        <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+                    </a>
+                    <a class="secondary-cta" href="#servicios">
+                        <span class="material-symbols-outlined" aria-hidden="true">explore</span>
+                        <span>Conocer servicios</span>
+                    </a>
+                </div>
+                <div class="hero-trust" aria-label="Principios del servicio">
+                    <span><span class="material-symbols-outlined" aria-hidden="true">verified_user</span>Atención confidencial</span>
+                    <span><span class="material-symbols-outlined" aria-hidden="true">diversity_3</span>Comunidad inclusiva</span>
+                </div>
+            </div>
+            <a class="hero-scroll" href="#servicios" aria-label="Ver servicios">
+                <span>Descubre cómo te acompañamos</span>
+                <span class="material-symbols-outlined" aria-hidden="true">keyboard_arrow_down</span>
+            </a>
+        </section>
+
+        <section class="impact-band" aria-label="Compromisos institucionales">
+            <div class="impact-inner">
+                <article><strong>4</strong><span>áreas de atención integral</span></article>
+                <article><strong>100%</strong><span>acompañamiento confidencial</span></article>
+                <article><strong>UNEMI</strong><span>comunidad interna y externa</span></article>
+            </div>
+        </section>
+
+        <section class="services-section" id="servicios" aria-labelledby="servicesTitle">
+            <div class="section-intro">
+                <div>
+                    <span class="section-kicker">Bienestar integral</span>
+                    <h2 id="servicesTitle">Acompañamiento para cada necesidad</h2>
+                </div>
+                <p>Nuestro equipo articula atención psicológica, evaluación, orientación y refuerzo para construir respuestas oportunas junto a cada persona.</p>
+            </div>
+
+            <div class="service-grid">
+                <article class="service-card clinical">
+                    <span class="service-icon material-symbols-outlined" aria-hidden="true">clinical_notes</span>
+                    <span class="service-number">01</span>
+                    <h3>Psicología clínica</h3>
+                    <p>Escucha profesional y seguimiento psicológico en un entorno seguro y confidencial.</p>
+                    <span class="service-detail">Atención individual</span>
+                </article>
+                <article class="service-card learning">
+                    <span class="service-icon material-symbols-outlined" aria-hidden="true">psychology</span>
+                    <span class="service-number">02</span>
+                    <h3>Psicopedagogía</h3>
+                    <p>Orientación para fortalecer hábitos, adaptación y estrategias de aprendizaje.</p>
+                    <span class="service-detail">Acompañamiento académico</span>
+                </article>
+                <article class="service-card assessment">
+                    <span class="service-icon material-symbols-outlined" aria-hidden="true">fact_check</span>
+                    <span class="service-number">03</span>
+                    <h3>Psicometría</h3>
+                    <p>Evaluaciones técnicas que apoyan la comprensión y toma de decisiones profesionales.</p>
+                    <span class="service-detail">Evaluación especializada</span>
+                </article>
+                <article class="service-card support">
+                    <span class="service-icon material-symbols-outlined" aria-hidden="true">school</span>
+                    <span class="service-number">04</span>
+                    <h3>Refuerzo académico</h3>
+                    <p>Apoyo planificado para avanzar con mayor confianza en el proceso formativo.</p>
+                    <span class="service-detail">Progreso estudiantil</span>
+                </article>
+            </div>
+        </section>
+
+        <section class="care-section" id="atencion" aria-labelledby="careTitle">
+            <div class="care-inner">
+                <div class="care-heading">
+                    <span class="section-kicker">Ruta de atención</span>
+                    <h2 id="careTitle">Estamos presentes desde el primer contacto</h2>
+                    <p>Cada proceso se organiza con claridad, respeto y continuidad.</p>
+                </div>
+                <ol class="care-steps">
+                    <li><span class="step-icon material-symbols-outlined" aria-hidden="true">forum</span><div><strong>Escuchamos</strong><p>Conocemos tu necesidad y orientamos el primer paso.</p></div></li>
+                    <li><span class="step-icon material-symbols-outlined" aria-hidden="true">calendar_month</span><div><strong>Coordinamos</strong><p>Vinculamos el área y profesional adecuados para tu atención.</p></div></li>
+                    <li><span class="step-icon material-symbols-outlined" aria-hidden="true">favorite</span><div><strong>Acompañamos</strong><p>Damos continuidad al proceso y a los acuerdos alcanzados.</p></div></li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="access-section" aria-labelledby="accessTitle">
+            <div>
+                <span class="section-kicker">Acceso institucional</span>
+                <h2 id="accessTitle">Gestión segura para profesionales y jefatura</h2>
+                <p>Ingresa al sistema para administrar usuarios, citas, procesos clínicos, informes y reportes.</p>
+            </div>
+            <a class="access-button" id="bottomAccess" href="html/login.html">
+                <span class="material-symbols-outlined" aria-hidden="true">shield_person</span>
+                <span>Acceder al sistema</span>
+                <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+            </a>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-brand">
+            <img src="img/LOGO-WEB-AZUL.png" alt="UNEMI">
+            <p>Salud y Desarrollo Humano</p>
+        </div>
+        <p>Escucha · Orienta · Acompaña · Transforma</p>
+        <small>© <span id="currentYear">2026</span> Universidad Estatal de Milagro</small>
+    </footer>
+
+    <script>
+        (function () {
+            const menuToggle = document.getElementById("menuToggle");
+            const siteNav = document.getElementById("siteNav");
+            const siteHeader = document.getElementById("siteHeader");
+            const sessionActive = localStorage.getItem("sesionActiva") === "true";
+
+            document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+            if (sessionActive) {
+                ["navAccess", "heroAccess", "bottomAccess"].forEach(function (id) {
+                    const link = document.getElementById(id);
+                    link.href = "html/dashboard.html";
+                });
+                document.querySelector("#navAccess span:last-child").textContent = "Ir al panel";
+                document.querySelector("#heroAccess span:first-child").textContent = "Ir al panel";
+                document.querySelector("#bottomAccess span:nth-child(2)").textContent = "Ir al panel de gestión";
+            }
+
+            menuToggle.addEventListener("click", function () {
+                const open = siteNav.classList.toggle("is-open");
+                menuToggle.setAttribute("aria-expanded", String(open));
+                menuToggle.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+                menuToggle.querySelector(".material-symbols-outlined").textContent = open ? "close" : "menu";
+            });
+
+            siteNav.querySelectorAll("a").forEach(function (link) {
+                link.addEventListener("click", function () {
+                    siteNav.classList.remove("is-open");
+                    menuToggle.setAttribute("aria-expanded", "false");
+                    menuToggle.setAttribute("aria-label", "Abrir menú");
+                    menuToggle.querySelector(".material-symbols-outlined").textContent = "menu";
+                });
+            });
+
+            function updateHeader() {
+                siteHeader.classList.toggle("is-scrolled", window.scrollY > 20);
+            }
+
+            window.addEventListener("scroll", updateHeader, { passive: true });
+            updateHeader();
+        }());
+    </script>
+</body>
+
+</html>
