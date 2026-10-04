@@ -1,0 +1,29 @@
+name: CI - Sistema de Salud UNEMI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  verificar-proyecto:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar código
+        uses: actions/checkout@v4
+
+      - name: Verificar estructura del proyecto
+        run: |
+          echo "Verificando estructura del proyecto..."
+          test -f index.html
+          test -d css
+          test -d js
+          test -d img
+          echo "Estructura del proyecto correcta."
+
+      - name: Finalizar CI
+        run: echo "CI ejecutado correctamente."
